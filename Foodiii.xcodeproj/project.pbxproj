@@ -16,6 +16,9 @@
 		CB7937A4286A704000275951 /* FoodiiiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7937A3286A704000275951 /* FoodiiiTests.swift */; };
 		CB7937AE286A704100275951 /* FoodiiiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7937AD286A704100275951 /* FoodiiiUITests.swift */; };
 		CB7937B0286A704100275951 /* FoodiiiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7937AF286A704100275951 /* FoodiiiUITestsLaunchTests.swift */; };
+		CB7937BE286A709D00275951 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7937BD286A709D00275951 /* Endpoint.swift */; };
+		CB7937C0286A70E500275951 /* RestaurantEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7937BF286A70E500275951 /* RestaurantEndpoint.swift */; };
+		CB7937C2286A71CC00275951 /* NetworkRequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7937C1286A71CC00275951 /* NetworkRequestService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +51,9 @@
 		CB7937A9286A704000275951 /* FoodiiiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodiiiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB7937AD286A704100275951 /* FoodiiiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodiiiUITests.swift; sourceTree = "<group>"; };
 		CB7937AF286A704100275951 /* FoodiiiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodiiiUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CB7937BD286A709D00275951 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		CB7937BF286A70E500275951 /* RestaurantEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantEndpoint.swift; sourceTree = "<group>"; };
+		CB7937C1286A71CC00275951 /* NetworkRequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +108,8 @@
 				CB79378F286A703B00275951 /* ContentView.swift */,
 				CB793791286A704000275951 /* Assets.xcassets */,
 				CB793796286A704000275951 /* Persistence.swift */,
-				CB793798286A704000275951 /* Foodiii.xcdatamodeld */,
+				CB7937BC286A707A00275951 /* Modules */,
+				CB7937C3286A71ED00275951 /* DataModule */,
 				CB793793286A704000275951 /* Preview Content */,
 			);
 			path = Foodiii;
@@ -131,6 +138,24 @@
 				CB7937AF286A704100275951 /* FoodiiiUITestsLaunchTests.swift */,
 			);
 			path = FoodiiiUITests;
+			sourceTree = "<group>";
+		};
+		CB7937BC286A707A00275951 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				CB7937BD286A709D00275951 /* Endpoint.swift */,
+				CB7937BF286A70E500275951 /* RestaurantEndpoint.swift */,
+				CB7937C1286A71CC00275951 /* NetworkRequestService.swift */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		CB7937C3286A71ED00275951 /* DataModule */ = {
+			isa = PBXGroup;
+			children = (
+				CB793798286A704000275951 /* Foodiii.xcdatamodeld */,
+			);
+			path = DataModule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,7 +291,10 @@
 				CB793797286A704000275951 /* Persistence.swift in Sources */,
 				CB793790286A703B00275951 /* ContentView.swift in Sources */,
 				CB79378E286A703B00275951 /* FoodiiiApp.swift in Sources */,
+				CB7937C2286A71CC00275951 /* NetworkRequestService.swift in Sources */,
+				CB7937C0286A70E500275951 /* RestaurantEndpoint.swift in Sources */,
 				CB79379A286A704000275951 /* Foodiii.xcdatamodeld in Sources */,
+				CB7937BE286A709D00275951 /* Endpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
