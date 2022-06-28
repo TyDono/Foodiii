@@ -5,7 +5,6 @@ use_frameworks!
 target 'Foodiii' do
     pod 'Firebase/Analytics'
     pod 'Firebase/Auth'
-    pod 'FBSDKLoginKit'
     pod 'GoogleSignIn'
     pod 'Firebase/Firestore'
     pod 'Firebase/Storage'

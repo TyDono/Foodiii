@@ -22,17 +22,16 @@
 #include <string>
 
 #include "Firestore/core/src/api/api_fwd.h"
+#include "Firestore/core/src/api/load_bundle_task.h"
 #include "Firestore/core/src/api/settings.h"
 #include "Firestore/core/src/core/core_fwd.h"
+#include "Firestore/core/src/credentials/credentials_fwd.h"
 #include "Firestore/core/src/model/database_id.h"
+#include "Firestore/core/src/util/byte_stream.h"
 #include "Firestore/core/src/util/status_fwd.h"
 
 namespace firebase {
 namespace firestore {
-
-namespace auth {
-class CredentialsProvider;
-}  // namespace auth
 
 namespace remote {
 class FirebaseMetadataProvider;
@@ -47,13 +46,18 @@ struct Empty;
 
 namespace api {
 
+extern const int kDefaultTransactionMaxAttempts;
+
 class Firestore : public std::enable_shared_from_this<Firestore> {
  public:
   Firestore() = default;
 
   Firestore(model::DatabaseId database_id,
             std::string persistence_key,
-            std::shared_ptr<auth::CredentialsProvider> credentials_provider,
+            std::shared_ptr<credentials::AuthCredentialsProvider>
+                auth_credentials_provider,
+            std::shared_ptr<credentials::AppCheckCredentialsProvider>
+                app_check_credentials_provider,
             std::shared_ptr<util::AsyncQueue> worker_queue,
             std::unique_ptr<remote::FirebaseMetadataProvider>
                 firebase_metadata_provider,
@@ -89,8 +93,11 @@ class Firestore : public std::enable_shared_from_this<Firestore> {
   WriteBatch GetBatch();
   core::Query GetCollectionGroup(std::string collection_id);
 
+  // TODO(dconeybe): Remove the default value of `max_attempts` once
+  // the firebase-cpp-sdk has been updated to specify an explicit value.
   void RunTransaction(core::TransactionUpdateCallback update_callback,
-                      core::TransactionResultCallback result_callback);
+                      core::TransactionResultCallback result_callback,
+                      int max_attempts = kDefaultTransactionMaxAttempts);
 
   void Terminate(util::StatusCallback callback);
   void ClearPersistence(util::StatusCallback callback);
@@ -100,6 +107,10 @@ class Firestore : public std::enable_shared_from_this<Firestore> {
 
   void EnableNetwork(util::StatusCallback callback);
   void DisableNetwork(util::StatusCallback callback);
+
+  std::shared_ptr<api::LoadBundleTask> LoadBundle(
+      std::unique_ptr<util::ByteStream> bundle_data);
+  void GetNamedQuery(const std::string& name, api::QueryCallback callback);
 
   /**
    * Sets the language of the public API in the format of
@@ -112,7 +123,10 @@ class Firestore : public std::enable_shared_from_this<Firestore> {
   core::DatabaseInfo MakeDatabaseInfo() const;
 
   model::DatabaseId database_id_;
-  std::shared_ptr<auth::CredentialsProvider> credentials_provider_;
+  std::shared_ptr<credentials::AppCheckCredentialsProvider>
+      app_check_credentials_provider_;
+  std::shared_ptr<credentials::AuthCredentialsProvider>
+      auth_credentials_provider_;
   std::string persistence_key_;
 
   std::shared_ptr<util::Executor> user_executor_;

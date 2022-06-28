@@ -18,13 +18,18 @@
 #define FIRESTORE_CORE_SRC_CORE_FIRESTORE_CLIENT_H_
 
 #include <memory>
+#include <string>
 #include <vector>
 
 #include "Firestore/core/src/api/api_fwd.h"
+#include "Firestore/core/src/api/load_bundle_task.h"
+#include "Firestore/core/src/bundle/bundle_serializer.h"
 #include "Firestore/core/src/core/core_fwd.h"
 #include "Firestore/core/src/core/database_info.h"
+#include "Firestore/core/src/credentials/credentials_fwd.h"
 #include "Firestore/core/src/model/database_id.h"
 #include "Firestore/core/src/util/async_queue.h"
+#include "Firestore/core/src/util/byte_stream.h"
 #include "Firestore/core/src/util/delayed_constructor.h"
 #include "Firestore/core/src/util/empty.h"
 #include "Firestore/core/src/util/executor.h"
@@ -33,11 +38,6 @@
 
 namespace firebase {
 namespace firestore {
-
-namespace auth {
-class CredentialsProvider;
-class User;
-}  // namespace auth
 
 namespace local {
 class LocalStore;
@@ -76,7 +76,10 @@ class FirestoreClient : public std::enable_shared_from_this<FirestoreClient> {
   static std::shared_ptr<FirestoreClient> Create(
       const DatabaseInfo& database_info,
       const api::Settings& settings,
-      std::shared_ptr<auth::CredentialsProvider> credentials_provider,
+      std::shared_ptr<credentials::AuthCredentialsProvider>
+          auth_credentials_provider,
+      std::shared_ptr<credentials::AppCheckCredentialsProvider>
+          app_check_credentials_provider,
       std::shared_ptr<util::Executor> user_executor,
       std::shared_ptr<util::AsyncQueue> worker_queue,
       std::unique_ptr<remote::FirebaseMetadataProvider>
@@ -140,9 +143,10 @@ class FirestoreClient : public std::enable_shared_from_this<FirestoreClient> {
                       util::StatusCallback callback);
 
   /**
-   * Tries to execute the transaction in update_callback up to retries times.
+   * Tries to execute the transaction in update_callback up to max_attempts
+   * times.
    */
-  void Transaction(int retries,
+  void Transaction(int max_attempts,
                    TransactionUpdateCallback update_callback,
                    TransactionResultCallback result_callback);
 
@@ -172,6 +176,11 @@ class FirestoreClient : public std::enable_shared_from_this<FirestoreClient> {
     return user_executor_;
   }
 
+  void LoadBundle(std::unique_ptr<util::ByteStream> bundle_data,
+                  std::shared_ptr<api::LoadBundleTask> result_task);
+
+  void GetNamedQuery(const std::string& name, api::QueryCallback callback);
+
   /** For usage in this class and testing only. */
   const std::shared_ptr<util::AsyncQueue>& worker_queue() const {
     return worker_queue_;
@@ -179,15 +188,17 @@ class FirestoreClient : public std::enable_shared_from_this<FirestoreClient> {
   bool is_terminated() const;
 
  private:
-  FirestoreClient(
-      const DatabaseInfo& database_info,
-      std::shared_ptr<auth::CredentialsProvider> credentials_provider,
-      std::shared_ptr<util::Executor> user_executor,
-      std::shared_ptr<util::AsyncQueue> worker_queue,
-      std::unique_ptr<remote::FirebaseMetadataProvider>
-          firebase_metadata_provider);
+  FirestoreClient(const DatabaseInfo& database_info,
+                  std::shared_ptr<credentials::AuthCredentialsProvider>
+                      auth_credentials_provider,
+                  std::shared_ptr<credentials::AppCheckCredentialsProvider>
+                      app_check_credentials_provider,
+                  std::shared_ptr<util::Executor> user_executor,
+                  std::shared_ptr<util::AsyncQueue> worker_queue,
+                  std::unique_ptr<remote::FirebaseMetadataProvider>
+                      firebase_metadata_provider);
 
-  void Initialize(const auth::User& user, const api::Settings& settings);
+  void Initialize(const credentials::User& user, const api::Settings& settings);
 
   void VerifyNotTerminated();
 
@@ -196,7 +207,10 @@ class FirestoreClient : public std::enable_shared_from_this<FirestoreClient> {
   void ScheduleLruGarbageCollection();
 
   DatabaseInfo database_info_;
-  std::shared_ptr<auth::CredentialsProvider> credentials_provider_;
+  std::shared_ptr<credentials::AppCheckCredentialsProvider>
+      app_check_credentials_provider_;
+  std::shared_ptr<credentials::AuthCredentialsProvider>
+      auth_credentials_provider_;
   /**
    * Async queue responsible for all of our internal processing. When we get
    * incoming work from the user (via public API) or the network (incoming gRPC

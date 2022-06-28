@@ -10,7 +10,7 @@
 		64D9F30396F618755F761B5D /* Pods_Foodiii.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADE02C18684359C204563562 /* Pods_Foodiii.framework */; };
 		7354BEA87105FC2791A25A7D /* Pods_FoodiiiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC0A24892FF0A3241E066B73 /* Pods_FoodiiiTests.framework */; };
 		CB79378E286A703B00275951 /* FoodiiiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB79378D286A703B00275951 /* FoodiiiApp.swift */; };
-		CB793790286A703B00275951 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB79378F286A703B00275951 /* ContentView.swift */; };
+		CB793790286A703B00275951 /* RestuarantSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB79378F286A703B00275951 /* RestuarantSelectionView.swift */; };
 		CB793792286A704000275951 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB793791286A704000275951 /* Assets.xcassets */; };
 		CB793795286A704000275951 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB793794286A704000275951 /* Preview Assets.xcassets */; };
 		CB793797286A704000275951 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB793796286A704000275951 /* Persistence.swift */; };
@@ -22,6 +22,13 @@
 		CB7937C0286A70E500275951 /* RestaurantEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7937BF286A70E500275951 /* RestaurantEndpoint.swift */; };
 		CB7937C2286A71CC00275951 /* NetworkRequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7937C1286A71CC00275951 /* NetworkRequestService.swift */; };
 		CB7937C5286A7E6700275951 /* UserSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7937C4286A7E6700275951 /* UserSignInViewController.swift */; };
+		CB7BCCF5286B823C00091678 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB7BCCF4286B823C00091678 /* GoogleService-Info.plist */; };
+		CB7BCCF8286B953100091678 /* FontModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7BCCF7286B953100091678 /* FontModifier.swift */; };
+		CBD41956286B95BA00E1C93A /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD41955286B95BA00E1C93A /* ViewExtension.swift */; };
+		CBD41958286B95E700E1C93A /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD41957286B95E700E1C93A /* StringExtension.swift */; };
+		CBD4195A286B961800E1C93A /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD41959286B961800E1C93A /* DateExtension.swift */; };
+		CBD4195C286B969400E1C93A /* HideNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD4195B286B969400E1C93A /* HideNavigationBar.swift */; };
+		CBD41960286B9B8300E1C93A /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD4195F286B9B8300E1C93A /* SignInView.swift */; };
 		D96E17CB57F3EB973E3DFCDC /* Pods_Foodiii_FoodiiiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 702DD0F7214641913F3429F8 /* Pods_Foodiii_FoodiiiUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,7 +60,7 @@
 		BDC7309F9DED49DAEDE6E73F /* Pods-Foodiii-FoodiiiUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Foodiii-FoodiiiUITests.debug.xcconfig"; path = "Target Support Files/Pods-Foodiii-FoodiiiUITests/Pods-Foodiii-FoodiiiUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CB79378A286A703B00275951 /* Foodiii.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Foodiii.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB79378D286A703B00275951 /* FoodiiiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodiiiApp.swift; sourceTree = "<group>"; };
-		CB79378F286A703B00275951 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CB79378F286A703B00275951 /* RestuarantSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestuarantSelectionView.swift; sourceTree = "<group>"; };
 		CB793791286A704000275951 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB793794286A704000275951 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CB793796286A704000275951 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -67,6 +74,13 @@
 		CB7937BF286A70E500275951 /* RestaurantEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantEndpoint.swift; sourceTree = "<group>"; };
 		CB7937C1286A71CC00275951 /* NetworkRequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestService.swift; sourceTree = "<group>"; };
 		CB7937C4286A7E6700275951 /* UserSignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignInViewController.swift; sourceTree = "<group>"; };
+		CB7BCCF4286B823C00091678 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CB7BCCF7286B953100091678 /* FontModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontModifier.swift; sourceTree = "<group>"; };
+		CBD41955286B95BA00E1C93A /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		CBD41957286B95E700E1C93A /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		CBD41959286B961800E1C93A /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		CBD4195B286B969400E1C93A /* HideNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideNavigationBar.swift; sourceTree = "<group>"; };
+		CBD4195F286B9B8300E1C93A /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		DC0A24892FF0A3241E066B73 /* Pods_FoodiiiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodiiiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -108,7 +122,6 @@
 				97AFFF25D82BAFF484175FEE /* Pods-FoodiiiTests.debug.xcconfig */,
 				66C14B06E623E30188EB6509 /* Pods-FoodiiiTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -148,13 +161,17 @@
 			isa = PBXGroup;
 			children = (
 				CB79378D286A703B00275951 /* FoodiiiApp.swift */,
-				CB79378F286A703B00275951 /* ContentView.swift */,
-				CB793791286A704000275951 /* Assets.xcassets */,
+				CB79378F286A703B00275951 /* RestuarantSelectionView.swift */,
+				CBD4195F286B9B8300E1C93A /* SignInView.swift */,
+				CB7BCCF6286B951300091678 /* Modifiers */,
 				CB793796286A704000275951 /* Persistence.swift */,
 				CB7937BC286A707A00275951 /* Modules */,
+				CBD41954286B959200E1C93A /* Extensions */,
 				CB7937C3286A71ED00275951 /* DataModule */,
 				CB793793286A704000275951 /* Preview Content */,
 				CB7937C4286A7E6700275951 /* UserSignInViewController.swift */,
+				CB7BCCF1286B816300091678 /* Plist */,
+				CB793791286A704000275951 /* Assets.xcassets */,
 			);
 			path = Foodiii;
 			sourceTree = "<group>";
@@ -200,6 +217,42 @@
 				CB793798286A704000275951 /* Foodiii.xcdatamodeld */,
 			);
 			path = DataModule;
+			sourceTree = "<group>";
+		};
+		CB7BCCF1286B816300091678 /* Plist */ = {
+			isa = PBXGroup;
+			children = (
+				CB7BCCF4286B823C00091678 /* GoogleService-Info.plist */,
+			);
+			path = Plist;
+			sourceTree = "<group>";
+		};
+		CB7BCCF6286B951300091678 /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				CB7BCCF9286B956500091678 /* Extensions */,
+				CB7BCCF7286B953100091678 /* FontModifier.swift */,
+				CBD4195B286B969400E1C93A /* HideNavigationBar.swift */,
+			);
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
+		CB7BCCF9286B956500091678 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CBD41954286B959200E1C93A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CBD41955286B95BA00E1C93A /* ViewExtension.swift */,
+				CBD41959286B961800E1C93A /* DateExtension.swift */,
+				CBD41957286B95E700E1C93A /* StringExtension.swift */,
+			);
+			name = Extensions;
+			path = Modules;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,6 +366,7 @@
 			files = (
 				CB793795286A704000275951 /* Preview Assets.xcassets in Resources */,
 				CB793792286A704000275951 /* Assets.xcassets in Resources */,
+				CB7BCCF5286B823C00091678 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,12 +495,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB793797286A704000275951 /* Persistence.swift in Sources */,
-				CB793790286A703B00275951 /* ContentView.swift in Sources */,
+				CBD4195A286B961800E1C93A /* DateExtension.swift in Sources */,
+				CB793790286A703B00275951 /* RestuarantSelectionView.swift in Sources */,
+				CB7BCCF8286B953100091678 /* FontModifier.swift in Sources */,
+				CBD4195C286B969400E1C93A /* HideNavigationBar.swift in Sources */,
 				CB79378E286A703B00275951 /* FoodiiiApp.swift in Sources */,
 				CB7937C2286A71CC00275951 /* NetworkRequestService.swift in Sources */,
 				CB7937C0286A70E500275951 /* RestaurantEndpoint.swift in Sources */,
+				CBD41960286B9B8300E1C93A /* SignInView.swift in Sources */,
+				CBD41956286B95BA00E1C93A /* ViewExtension.swift in Sources */,
 				CB79379A286A704000275951 /* Foodiii.xcdatamodeld in Sources */,
 				CB7937BE286A709D00275951 /* Endpoint.swift in Sources */,
+				CBD41958286B95E700E1C93A /* StringExtension.swift in Sources */,
 				CB7937C5286A7E6700275951 /* UserSignInViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
