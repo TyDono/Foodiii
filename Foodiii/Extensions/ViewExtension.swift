@@ -1,8 +1,8 @@
 //
-//  ViewExentsion.swift
+//  ViewExtension.swift
 //  Foodiii
 //
-//  Created by Tyler Donohue on 6/28/22.
+//  Created by Tyler Donohue on 6/29/22.
 //
 
 import Foundation
@@ -16,8 +16,8 @@ extension View {
         #endif
     }
     
-//    func hideNavigationBar() -> some View {
-//        modifier(HideNavigationBarModifier())
-//    }
+    func hideNavigationBar() -> some View {
+        modifier(HideNavigationBarModifier())
+    }
     
 }

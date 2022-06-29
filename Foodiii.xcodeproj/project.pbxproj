@@ -24,11 +24,14 @@
 		CB7937C5286A7E6700275951 /* UserSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7937C4286A7E6700275951 /* UserSignInViewController.swift */; };
 		CB7BCCF5286B823C00091678 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB7BCCF4286B823C00091678 /* GoogleService-Info.plist */; };
 		CB7BCCF8286B953100091678 /* FontModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7BCCF7286B953100091678 /* FontModifier.swift */; };
-		CBD41956286B95BA00E1C93A /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD41955286B95BA00E1C93A /* ViewExtension.swift */; };
 		CBD41958286B95E700E1C93A /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD41957286B95E700E1C93A /* StringExtension.swift */; };
 		CBD4195A286B961800E1C93A /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD41959286B961800E1C93A /* DateExtension.swift */; };
 		CBD4195C286B969400E1C93A /* HideNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD4195B286B969400E1C93A /* HideNavigationBar.swift */; };
 		CBD41960286B9B8300E1C93A /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD4195F286B9B8300E1C93A /* SignInView.swift */; };
+		CBD41962286C26F100E1C93A /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD41961286C26F100E1C93A /* ViewExtension.swift */; };
+		CBD41964286C275C00E1C93A /* KeybaordAdaptiveModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD41963286C275C00E1C93A /* KeybaordAdaptiveModifier.swift */; };
+		CBD47EC8286C2834007F5038 /* PublishersExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD47EC7286C2834007F5038 /* PublishersExtension.swift */; };
+		CBD47ECA286C28F4007F5038 /* UIResponderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD47EC9286C28F4007F5038 /* UIResponderExtension.swift */; };
 		D96E17CB57F3EB973E3DFCDC /* Pods_Foodiii_FoodiiiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 702DD0F7214641913F3429F8 /* Pods_Foodiii_FoodiiiUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -76,11 +79,14 @@
 		CB7937C4286A7E6700275951 /* UserSignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignInViewController.swift; sourceTree = "<group>"; };
 		CB7BCCF4286B823C00091678 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CB7BCCF7286B953100091678 /* FontModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontModifier.swift; sourceTree = "<group>"; };
-		CBD41955286B95BA00E1C93A /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		CBD41957286B95E700E1C93A /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		CBD41959286B961800E1C93A /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		CBD4195B286B969400E1C93A /* HideNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideNavigationBar.swift; sourceTree = "<group>"; };
 		CBD4195F286B9B8300E1C93A /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		CBD41961286C26F100E1C93A /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		CBD41963286C275C00E1C93A /* KeybaordAdaptiveModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeybaordAdaptiveModifier.swift; sourceTree = "<group>"; };
+		CBD47EC7286C2834007F5038 /* PublishersExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishersExtension.swift; sourceTree = "<group>"; };
+		CBD47EC9286C28F4007F5038 /* UIResponderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIResponderExtension.swift; sourceTree = "<group>"; };
 		DC0A24892FF0A3241E066B73 /* Pods_FoodiiiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodiiiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -163,10 +169,10 @@
 				CB79378D286A703B00275951 /* FoodiiiApp.swift */,
 				CB79378F286A703B00275951 /* RestuarantSelectionView.swift */,
 				CBD4195F286B9B8300E1C93A /* SignInView.swift */,
-				CB7BCCF6286B951300091678 /* Modifiers */,
 				CB793796286A704000275951 /* Persistence.swift */,
+				CB7BCCF6286B951300091678 /* Modifiers */,
+				CB7BCCF9286B956500091678 /* Extensions */,
 				CB7937BC286A707A00275951 /* Modules */,
-				CBD41954286B959200E1C93A /* Extensions */,
 				CB7937C3286A71ED00275951 /* DataModule */,
 				CB793793286A704000275951 /* Preview Content */,
 				CB7937C4286A7E6700275951 /* UserSignInViewController.swift */,
@@ -230,9 +236,9 @@
 		CB7BCCF6286B951300091678 /* Modifiers */ = {
 			isa = PBXGroup;
 			children = (
-				CB7BCCF9286B956500091678 /* Extensions */,
 				CB7BCCF7286B953100091678 /* FontModifier.swift */,
 				CBD4195B286B969400E1C93A /* HideNavigationBar.swift */,
+				CBD41963286C275C00E1C93A /* KeybaordAdaptiveModifier.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -240,19 +246,13 @@
 		CB7BCCF9286B956500091678 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		CBD41954286B959200E1C93A /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				CBD41955286B95BA00E1C93A /* ViewExtension.swift */,
+				CBD41961286C26F100E1C93A /* ViewExtension.swift */,
 				CBD41959286B961800E1C93A /* DateExtension.swift */,
 				CBD41957286B95E700E1C93A /* StringExtension.swift */,
+				CBD47EC7286C2834007F5038 /* PublishersExtension.swift */,
+				CBD47EC9286C28F4007F5038 /* UIResponderExtension.swift */,
 			);
-			name = Extensions;
-			path = Modules;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -501,12 +501,15 @@
 				CBD4195C286B969400E1C93A /* HideNavigationBar.swift in Sources */,
 				CB79378E286A703B00275951 /* FoodiiiApp.swift in Sources */,
 				CB7937C2286A71CC00275951 /* NetworkRequestService.swift in Sources */,
+				CBD41964286C275C00E1C93A /* KeybaordAdaptiveModifier.swift in Sources */,
 				CB7937C0286A70E500275951 /* RestaurantEndpoint.swift in Sources */,
 				CBD41960286B9B8300E1C93A /* SignInView.swift in Sources */,
-				CBD41956286B95BA00E1C93A /* ViewExtension.swift in Sources */,
+				CBD41962286C26F100E1C93A /* ViewExtension.swift in Sources */,
+				CBD47EC8286C2834007F5038 /* PublishersExtension.swift in Sources */,
 				CB79379A286A704000275951 /* Foodiii.xcdatamodeld in Sources */,
 				CB7937BE286A709D00275951 /* Endpoint.swift in Sources */,
 				CBD41958286B95E700E1C93A /* StringExtension.swift in Sources */,
+				CBD47ECA286C28F4007F5038 /* UIResponderExtension.swift in Sources */,
 				CB7937C5286A7E6700275951 /* UserSignInViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
