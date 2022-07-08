@@ -24,7 +24,7 @@ struct FoodiiiApp: App {
 
     var body: some Scene {
         WindowGroup {
-            RestuarantSelectionView()
+            SignInView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

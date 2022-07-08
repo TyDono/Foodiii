@@ -32,6 +32,11 @@
 		CBD41964286C275C00E1C93A /* KeybaordAdaptiveModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD41963286C275C00E1C93A /* KeybaordAdaptiveModifier.swift */; };
 		CBD47EC8286C2834007F5038 /* PublishersExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD47EC7286C2834007F5038 /* PublishersExtension.swift */; };
 		CBD47ECA286C28F4007F5038 /* UIResponderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD47EC9286C28F4007F5038 /* UIResponderExtension.swift */; };
+		CBD47ECD2877AB86007F5038 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD47ECC2877AB86007F5038 /* Constants.swift */; };
+		CBD47ED02877AE0E007F5038 /* AppleSignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD47ECF2877AE0E007F5038 /* AppleSignIn.swift */; };
+		CBD47ED22877AE8B007F5038 /* AlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD47ED12877AE8B007F5038 /* AlertItem.swift */; };
+		CBD47ED42877AED8007F5038 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD47ED32877AED8007F5038 /* SessionStore.swift */; };
+		CBD47ED62877AF1B007F5038 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD47ED52877AF1B007F5038 /* User.swift */; };
 		D96E17CB57F3EB973E3DFCDC /* Pods_Foodiii_FoodiiiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 702DD0F7214641913F3429F8 /* Pods_Foodiii_FoodiiiUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +92,11 @@
 		CBD41963286C275C00E1C93A /* KeybaordAdaptiveModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeybaordAdaptiveModifier.swift; sourceTree = "<group>"; };
 		CBD47EC7286C2834007F5038 /* PublishersExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishersExtension.swift; sourceTree = "<group>"; };
 		CBD47EC9286C28F4007F5038 /* UIResponderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIResponderExtension.swift; sourceTree = "<group>"; };
+		CBD47ECC2877AB86007F5038 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		CBD47ECF2877AE0E007F5038 /* AppleSignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSignIn.swift; sourceTree = "<group>"; };
+		CBD47ED12877AE8B007F5038 /* AlertItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertItem.swift; sourceTree = "<group>"; };
+		CBD47ED32877AED8007F5038 /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
+		CBD47ED52877AF1B007F5038 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DC0A24892FF0A3241E066B73 /* Pods_FoodiiiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodiiiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -170,8 +180,11 @@
 				CB79378F286A703B00275951 /* RestuarantSelectionView.swift */,
 				CBD4195F286B9B8300E1C93A /* SignInView.swift */,
 				CB793796286A704000275951 /* Persistence.swift */,
+				CBD47ED52877AF1B007F5038 /* User.swift */,
 				CB7BCCF6286B951300091678 /* Modifiers */,
 				CB7BCCF9286B956500091678 /* Extensions */,
+				CBD47ECE2877ADEE007F5038 /* Authentication */,
+				CBD47ECB2877AB75007F5038 /* Utilities */,
 				CB7937BC286A707A00275951 /* Modules */,
 				CB7937C3286A71ED00275951 /* DataModule */,
 				CB793793286A704000275951 /* Preview Content */,
@@ -255,6 +268,24 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		CBD47ECB2877AB75007F5038 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				CBD47ECC2877AB86007F5038 /* Constants.swift */,
+				CBD47ED12877AE8B007F5038 /* AlertItem.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		CBD47ECE2877ADEE007F5038 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				CBD47ECF2877AE0E007F5038 /* AppleSignIn.swift */,
+				CBD47ED32877AED8007F5038 /* SessionStore.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -267,6 +298,7 @@
 				CB793787286A703B00275951 /* Frameworks */,
 				CB793788286A703B00275951 /* Resources */,
 				C6823E9C667C136517690A8D /* [CP] Embed Pods Frameworks */,
+				4A64B4E505A288FC3E458A4C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -305,6 +337,7 @@
 				CB7937A6286A704000275951 /* Frameworks */,
 				CB7937A7286A704000275951 /* Resources */,
 				A63302C88663213FE7419355 /* [CP] Embed Pods Frameworks */,
+				E9BBBD293437866CC96A569A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -409,6 +442,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		4A64B4E505A288FC3E458A4C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Foodiii/Pods-Foodiii-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Foodiii/Pods-Foodiii-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Foodiii/Pods-Foodiii-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		55A9421D595900DF8D28F4F7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -465,6 +515,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Foodiii/Pods-Foodiii-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E9BBBD293437866CC96A569A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Foodiii-FoodiiiUITests/Pods-Foodiii-FoodiiiUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Foodiii-FoodiiiUITests/Pods-Foodiii-FoodiiiUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Foodiii-FoodiiiUITests/Pods-Foodiii-FoodiiiUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		FA6101F9EB0773DE2CC5D020 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -494,6 +561,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBD47ED02877AE0E007F5038 /* AppleSignIn.swift in Sources */,
 				CB793797286A704000275951 /* Persistence.swift in Sources */,
 				CBD4195A286B961800E1C93A /* DateExtension.swift in Sources */,
 				CB793790286A703B00275951 /* RestuarantSelectionView.swift in Sources */,
@@ -501,16 +569,20 @@
 				CBD4195C286B969400E1C93A /* HideNavigationBar.swift in Sources */,
 				CB79378E286A703B00275951 /* FoodiiiApp.swift in Sources */,
 				CB7937C2286A71CC00275951 /* NetworkRequestService.swift in Sources */,
+				CBD47ED42877AED8007F5038 /* SessionStore.swift in Sources */,
 				CBD41964286C275C00E1C93A /* KeybaordAdaptiveModifier.swift in Sources */,
+				CBD47ED62877AF1B007F5038 /* User.swift in Sources */,
 				CB7937C0286A70E500275951 /* RestaurantEndpoint.swift in Sources */,
 				CBD41960286B9B8300E1C93A /* SignInView.swift in Sources */,
 				CBD41962286C26F100E1C93A /* ViewExtension.swift in Sources */,
 				CBD47EC8286C2834007F5038 /* PublishersExtension.swift in Sources */,
+				CBD47ED22877AE8B007F5038 /* AlertItem.swift in Sources */,
 				CB79379A286A704000275951 /* Foodiii.xcdatamodeld in Sources */,
 				CB7937BE286A709D00275951 /* Endpoint.swift in Sources */,
 				CBD41958286B95E700E1C93A /* StringExtension.swift in Sources */,
 				CBD47ECA286C28F4007F5038 /* UIResponderExtension.swift in Sources */,
 				CB7937C5286A7E6700275951 /* UserSignInViewController.swift in Sources */,
+				CBD47ECD2877AB86007F5038 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

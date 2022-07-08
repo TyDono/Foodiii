@@ -13,6 +13,12 @@ target 'Foodiii' do
     pod 'SDWebImageSwiftUI'
     pod 'Firebase/DynamicLinks'
 
+    pod 'FirebaseUI/Auth'
+    pod 'FirebaseUI/Google'
+    pod 'FirebaseUI/Facebook'
+    pod 'FirebaseUI/OAuth'
+    pod 'FirebaseUI/Phone'
+
   target 'FoodiiiTests' do
     inherit! :search_paths
     # Pods for testing
