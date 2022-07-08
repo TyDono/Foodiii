@@ -77,7 +77,7 @@ struct SignInView: View {
     
     private var titleLabel: some View {
         Text("FOODiii")
-            .foregroundColor(Colors.fungus)
+            .foregroundColor(Colors.green)
             .modifier(FontModifier(size: 20, weight: .extraBold))
     }
     

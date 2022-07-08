@@ -3,21 +3,7 @@
 use_frameworks!
 
 target 'Foodiii' do
-    pod 'Firebase/Analytics'
-    pod 'Firebase/Auth'
-    pod 'GoogleSignIn'
-    pod 'Firebase/Firestore'
-    pod 'Firebase/Storage'
-    pod 'FirebaseFirestoreSwift'
-    pod 'Firebase/Messaging'
-    pod 'SDWebImageSwiftUI'
-    pod 'Firebase/DynamicLinks'
 
-    pod 'FirebaseUI/Auth'
-    pod 'FirebaseUI/Google'
-    pod 'FirebaseUI/Facebook'
-    pod 'FirebaseUI/OAuth'
-    pod 'FirebaseUI/Phone'
 
   target 'FoodiiiTests' do
     inherit! :search_paths
