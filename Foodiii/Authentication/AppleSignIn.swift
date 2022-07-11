@@ -158,33 +158,31 @@
 //        user.profileImageUrl = newUser.profileImageUrl
 //    }
 //
-//    func notificationSignup() {
-//        guard let userId = Auth.auth().currentUser?.uid else { return }
-//        let imageURLString = "https://firebasestorage.googleapis.com/v0/b/hike-intel.appspot.com/o/profile_images%2FHike%20Intel%2F1603919051578.jpeg?alt=media&token=41b83c04-cde3-4ac9-8c7c-b18c0722f22e"
-//        let message: String = AppDelegate.hikeIntelUserSignupNotificationGreeting
-//        let notification = HINotification(type: .hikeIntelNotification,
-//                                          imageUrl: imageURLString,
-//                                          message: message,
-//                                          datePosted: Date().dateToUTC,
-//                                          intelId: "edit_user_profile")
-//        let notificationPath: DocumentReference
-//        notificationPath = Firestore.firestore().collection("users").document(userId).collection("notifications").document(notification.id)
-//        let values: [String: Any] = [
-//            "id": notification.id,
-//            "type": notification.type.rawValue,
-//            "image_url": notification.imageUrl,
-//            "message": notification.message,
-//            "date_posted": notification.datePosted,
-//            "intel_id": notification.intelId,
-//            "is_read": notification.isRead
-//        ]
-//        notificationPath.setData(values)
-//    }
+////    func notificationSignup() {
+////        guard let userId = Auth.auth().currentUser?.uid else { return }
+////        let imageURLString = ""
+////        let message: String = AppDelegate.hikeIntelUserSignupNotificationGreeting
+////        let notification = HINotification(type: .hikeIntelNotification,
+////                                          imageUrl: imageURLString,
+////                                          message: message,
+////                                          datePosted: Date().dateToUTC,
+////                                          intelId: "edit_user_profile")
+////        let notificationPath: DocumentReference
+////        notificationPath = Firestore.firestore().collection("users").document(userId).collection("notifications").document(notification.id)
+////        let values: [String: Any] = [
+////            "id": notification.id,
+////            "type": notification.type.rawValue,
+////            "image_url": notification.imageUrl,
+////            "message": notification.message,
+////            "date_posted": notification.datePosted,
+////            "intel_id": notification.intelId,
+////            "is_read": notification.isRead
+////        ]
+////        notificationPath.setData(values)
+////    }
 //
 //}
 //
-//
-//// Adapted from https://auth0.com/docs/api-auth/tutorials/nonce#generate-a-cryptographically-random-nonce
 //private func randomNonceString(length: Int = 32) -> String {
 //    precondition(length > 0)
 //    let charset: Array<Character> =

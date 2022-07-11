@@ -19,11 +19,11 @@ struct User: Identifiable, Codable {
 
 extension User {
     enum CodingKeys: String, CodingKey {
-        case id
+        case id = "id"
         case firstName = "first_name"
         case lastName = "last_name"
-        case email
-        case location
+        case email = "email"
+        case location = "location"
         case profileImageUrl = "profile_image_url"
     }
 }

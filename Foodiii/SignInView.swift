@@ -84,8 +84,8 @@ struct SignInView: View {
                     .padding(.bottom, 5)
                     googleSignInButton
                         .padding(.vertical, 5)
-                    signInWithFacebook
-                        .padding(.vertical, 5)
+//                    signInWithFacebook // NON MVP
+//                        .padding(.vertical, 5)
                 }
 //                .padding(16)
 //                .frame(width: geometry.size.width, height: geometry.size.height)
@@ -102,6 +102,98 @@ struct SignInView: View {
 //              message: alertItem.message,
 //              dismissButton: alertItem.dismissButton)
 //    }
+    }
+    
+
+    private var backButton: some View {
+        Button(action: {
+            presentationMode.wrappedValue.dismiss()
+        }) {
+            Image("chevron.left")
+                .renderingMode(.template)
+                .aspectRatio(contentMode: .fit)
+                .foregroundColor(.white)
+        }
+    }
+    
+    private var titleLabel: some View {
+        Text("FOODiii")
+            .foregroundColor(Colors.green)
+            .modifier(FontModifier(size: 20, weight: .extraBold))
+    }
+    
+    private var googleSignInButton: some View {
+        Button(action: {
+            signInWithGoogle()
+        }) {
+            Image("btn_google_signin_light_normal_text")
+//                .aspectRatio(contentMode: .fit)
+        }
+    }
+    
+    private func signInWithGoogle() {
+        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+        let config = GIDConfiguration(clientID: clientID)
+        GIDSignIn.sharedInstance.signIn(with: config, presenting: getRootViewController()) { [self] user, err in
+            if err != nil {
+                print("Error Description: \(err?.localizedDescription)")
+              return
+            }
+
+            guard
+              let authentication = user?.authentication,
+              let idToken = authentication.idToken
+            else {
+              return
+            }
+            let credential = GoogleAuthProvider.credential(withIDToken: idToken,
+                                                           accessToken: authentication.accessToken)
+            Auth.auth().signIn(with: credential) { result, err in
+                if err != nil {
+                    print("Error Description: \(err?.localizedDescription)")
+                  return
+                }
+                guard let user = result?.user else { return }
+                print(user.displayName ?? "Sccuessful Sign In")
+            }
+        }
+        
+    }
+    
+    private var orDivider: some View {
+        HStack {
+            customDivider
+                .foregroundColor(Colors.greyMedium)
+            
+            Text("or")
+                .foregroundColor(Colors.greyMedium)
+                .modifier(FontModifier(size: 15, weight: .regular))
+            
+            customDivider
+                .foregroundColor(Colors.greyMedium)
+        }
+    }
+    
+    private var customDivider: some View {
+        RoundedRectangle(cornerRadius: 1)
+            .frame(height: 2)
+    }
+    
+    private var signInWithFacebook: some View {
+        Button(action: {
+            
+        }) {
+            RoundedRectangle(cornerRadius: 4)
+                .foregroundColor(.white)
+                .shadow(color: Color.black.opacity(0.26), radius: 12, x: 0, y: 0)
+                .frame(maxWidth: .infinity)
+                .frame(height: 44)
+                .overlay(
+                    Text("Sign in with Facebook")
+                        .foregroundColor(Colors.greyDark)
+                        .modifier(FontModifier(size: 15, weight: .extraBold))
+                )
+        }
     }
     
     private func randomNonceString(length: Int = 32) -> String {
@@ -154,110 +246,10 @@ struct SignInView: View {
                 backButton
                 Spacer()
             }
-            
             titleLabel
         }
     }
     
-    private var backButton: some View {
-        Button(action: {
-            presentationMode.wrappedValue.dismiss()
-        }) {
-            Image("chevron.left")
-                .renderingMode(.template)
-                .aspectRatio(contentMode: .fit)
-                .foregroundColor(.white)
-        }
-    }
-    
-    private var titleLabel: some View {
-        Text("FOODiii")
-            .foregroundColor(Colors.green)
-            .modifier(FontModifier(size: 20, weight: .extraBold))
-    }
-    
-    private var googleSignInButton: some View {
-        Button(action: {
-            signInWithGoogle()
-        }) {
-            RoundedRectangle(cornerRadius: 4)
-                .foregroundColor(.white)
-                .shadow(color: Color.black.opacity(0.26), radius: 12, x: 0, y: 0)
-                .frame(maxWidth: .infinity)
-                .frame(height: 44)
-                .overlay(
-                    Text("Sign in with Google")
-                        .foregroundColor(Colors.greyDark)
-                        .modifier(FontModifier(size: 15, weight: .extraBold))
-                )
-        }
-    }
-    
-    private func signInWithGoogle() {
-        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
-        let config = GIDConfiguration(clientID: clientID)
-        GIDSignIn.sharedInstance.signIn(with: config, presenting: getRootViewController()) { [self] user, err in
-            if err != nil {
-                print("Error Description: \(err?.localizedDescription)")
-              return
-            }
-
-            guard
-              let authentication = user?.authentication,
-              let idToken = authentication.idToken
-            else {
-              return
-            }
-
-            let credential = GoogleAuthProvider.credential(withIDToken: idToken,
-                                                           accessToken: authentication.accessToken)
-            Auth.auth().signIn(with: credential) { result, err in
-                if err != nil {
-                    print("Error Description: \(err?.localizedDescription)")
-                  return
-                }
-                guard let user = result?.user else { return }
-                print(user.displayName ?? "Sccuessful Sign In")
-            }
-        }
-        
-    }
-    
-    private var orDivider: some View {
-        HStack {
-            customDivider
-                .foregroundColor(Colors.greyMedium)
-            
-            Text("or")
-                .foregroundColor(Colors.greyMedium)
-                .modifier(FontModifier(size: 15, weight: .regular))
-            
-            customDivider
-                .foregroundColor(Colors.greyMedium)
-        }
-    }
-    
-    private var customDivider: some View {
-        RoundedRectangle(cornerRadius: 1)
-            .frame(height: 2)
-    }
-    
-    private var signInWithFacebook: some View {
-        Button(action: {
-            
-        }) {
-            RoundedRectangle(cornerRadius: 4)
-                .foregroundColor(.white)
-                .shadow(color: Color.black.opacity(0.26), radius: 12, x: 0, y: 0)
-                .frame(maxWidth: .infinity)
-                .frame(height: 44)
-                .overlay(
-                    Text("Sign in with Facebook")
-                        .foregroundColor(Colors.greyDark)
-                        .modifier(FontModifier(size: 15, weight: .extraBold))
-                )
-        }
-    }
 }
 
 struct SignInPreview: PreviewProvider {
@@ -270,7 +262,6 @@ extension View {
     func getRect() -> CGRect {
         return UIScreen.main.bounds
     }
-    
     func getRootViewController() -> UIViewController {
         guard let screen = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
             return .init()

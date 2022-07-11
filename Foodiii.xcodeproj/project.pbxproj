@@ -23,6 +23,7 @@
 		CB7BCCF5286B823C00091678 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB7BCCF4286B823C00091678 /* GoogleService-Info.plist */; };
 		CB7BCCF8286B953100091678 /* FontModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7BCCF7286B953100091678 /* FontModifier.swift */; };
 		CB8A864B2878D4B800C40A56 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8A864A2878D4B800C40A56 /* HomeView.swift */; };
+		CB974F60287CCE60002FD13C /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB974F5F287CCE60002FD13C /* SessionStore.swift */; };
 		CBA3D5C32878D8E70090D34B /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = CBA3D5C22878D8E70090D34B /* FirebaseAnalytics */; };
 		CBA3D5C52878D8E70090D34B /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = CBA3D5C42878D8E70090D34B /* FirebaseAnalyticsOnDeviceConversion */; };
 		CBA3D5C72878D8E70090D34B /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CBA3D5C62878D8E70090D34B /* FirebaseAnalyticsSwift */; };
@@ -103,6 +104,7 @@
 		CB7BCCF4286B823C00091678 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CB7BCCF7286B953100091678 /* FontModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontModifier.swift; sourceTree = "<group>"; };
 		CB8A864A2878D4B800C40A56 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		CB974F5F287CCE60002FD13C /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
 		CBA3D5F62878DDCD0090D34B /* Foodiii.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Foodiii.entitlements; sourceTree = "<group>"; };
 		CBA3D5F72878DE7A0090D34B /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
 		CBA3D5F92878DFC00090D34B /* NavigationLogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationLogInView.swift; sourceTree = "<group>"; };
@@ -306,6 +308,7 @@
 			children = (
 				CBD47ECF2877AE0E007F5038 /* AppleSignIn.swift */,
 				CBA3D5F72878DE7A0090D34B /* UserAuth.swift */,
+				CB974F5F287CCE60002FD13C /* SessionStore.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -485,6 +488,7 @@
 				CB7937C2286A71CC00275951 /* NetworkRequestService.swift in Sources */,
 				CBD41964286C275C00E1C93A /* KeybaordAdaptiveModifier.swift in Sources */,
 				CBD47ED62877AF1B007F5038 /* User.swift in Sources */,
+				CB974F60287CCE60002FD13C /* SessionStore.swift in Sources */,
 				CB7937C0286A70E500275951 /* RestaurantEndpoint.swift in Sources */,
 				CBD41960286B9B8300E1C93A /* SignInView.swift in Sources */,
 				CBD41962286C26F100E1C93A /* ViewExtension.swift in Sources */,
