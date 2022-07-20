@@ -38,7 +38,6 @@ class UserObservable: ObservableObject {
     let isNewUserKey = "isNewUser"
     let latitudeKey = "latitude"
     let longitudeKey = "longitude"
-    let zoomKey = "zoom"
     
     var id: String
     
@@ -90,12 +89,6 @@ class UserObservable: ObservableObject {
         }
     }
     
-    @Published var zoom: Double {
-        didSet {
-            UserDefaults.standard.setValue(zoom, forKey: zoomKey)
-        }
-    }
-    
     func setId(to newId: String) {
         UserDefaults.standard.setValue(newId, forKey: idKey)
     }
@@ -110,6 +103,5 @@ class UserObservable: ObservableObject {
         isNewUser = UserDefaults.standard.bool(forKey: "\(isNewUserKey)-\(id)")
         latitude = UserDefaults.standard.double(forKey: latitudeKey)
         longitude = UserDefaults.standard.double(forKey: longitudeKey)
-        zoom = UserDefaults.standard.double(forKey: zoomKey)
     }
 }

@@ -24,6 +24,8 @@
 		CB7BCCF8286B953100091678 /* FontModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7BCCF7286B953100091678 /* FontModifier.swift */; };
 		CB8A864B2878D4B800C40A56 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8A864A2878D4B800C40A56 /* HomeView.swift */; };
 		CB974F60287CCE60002FD13C /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB974F5F287CCE60002FD13C /* SessionStore.swift */; };
+		CB974F63287CDC79002FD13C /* FoodiNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB974F62287CDC79002FD13C /* FoodiNotification.swift */; };
+		CB974F65287CF7ED002FD13C /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB974F64287CF7ED002FD13C /* Validation.swift */; };
 		CBA3D5C32878D8E70090D34B /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = CBA3D5C22878D8E70090D34B /* FirebaseAnalytics */; };
 		CBA3D5C52878D8E70090D34B /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = CBA3D5C42878D8E70090D34B /* FirebaseAnalyticsOnDeviceConversion */; };
 		CBA3D5C72878D8E70090D34B /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CBA3D5C62878D8E70090D34B /* FirebaseAnalyticsSwift */; };
@@ -105,6 +107,8 @@
 		CB7BCCF7286B953100091678 /* FontModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontModifier.swift; sourceTree = "<group>"; };
 		CB8A864A2878D4B800C40A56 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CB974F5F287CCE60002FD13C /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
+		CB974F62287CDC79002FD13C /* FoodiNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodiNotification.swift; sourceTree = "<group>"; };
+		CB974F64287CF7ED002FD13C /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		CBA3D5F62878DDCD0090D34B /* Foodiii.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Foodiii.entitlements; sourceTree = "<group>"; };
 		CBA3D5F72878DE7A0090D34B /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
 		CBA3D5F92878DFC00090D34B /* NavigationLogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationLogInView.swift; sourceTree = "<group>"; };
@@ -249,6 +253,7 @@
 		CB7937BC286A707A00275951 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				CB974F61287CDC69002FD13C /* Notifications */,
 				CB7937BD286A709D00275951 /* Endpoint.swift */,
 				CB7937BF286A70E500275951 /* RestaurantEndpoint.swift */,
 				CB7937C1286A71CC00275951 /* NetworkRequestService.swift */,
@@ -294,11 +299,20 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		CB974F61287CDC69002FD13C /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				CB974F62287CDC79002FD13C /* FoodiNotification.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
 		CBD47ECB2877AB75007F5038 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
 				CBD47ECC2877AB86007F5038 /* Constants.swift */,
 				CBD47ED12877AE8B007F5038 /* AlertItem.swift */,
+				CB974F64287CF7ED002FD13C /* Validation.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -477,9 +491,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB974F63287CDC79002FD13C /* FoodiNotification.swift in Sources */,
 				CBD47ED02877AE0E007F5038 /* AppleSignIn.swift in Sources */,
 				CBA3D5FA2878DFC00090D34B /* NavigationLogInView.swift in Sources */,
 				CB793797286A704000275951 /* Persistence.swift in Sources */,
+				CB974F65287CF7ED002FD13C /* Validation.swift in Sources */,
 				CBD4195A286B961800E1C93A /* DateExtension.swift in Sources */,
 				CB793790286A703B00275951 /* RestuarantSelectionView.swift in Sources */,
 				CB7BCCF8286B953100091678 /* FontModifier.swift in Sources */,

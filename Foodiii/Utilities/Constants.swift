@@ -36,3 +36,14 @@ enum Colors {
     static let black26 = Color(red: 0/255, green: 0/255, blue: 0/255).opacity(0.26)
     static let black16 = Color(red: 0/255, green: 0/255, blue: 0/255).opacity(0.16)
 }
+
+enum AnalyticsEvents {
+    
+    
+    static let signUpWithGoogle = "sign_up_with_google"
+    static let signUpWithApple = "sign_up_with_apple"
+    
+    static let logInWithGoogle = "log_in_with_google"
+    static let logInWithApple = "log_in_with_apple"
+    
+}

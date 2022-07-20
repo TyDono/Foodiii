@@ -11,16 +11,29 @@ import FirebaseAuth
 import SwiftUI
 import AuthenticationServices
 import GoogleSignIn
+import FirebaseAnalytics
 
 struct SignInView: View {
     
     @EnvironmentObject var userAuth: UserAuth
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @EnvironmentObject var session: SessionStore
     
 //    @State var coordinator: SignInWithAppleCoordinator?
-    @State var currentNonce: String?
+    @State var email = ""
+    @State var password = ""
+    
+    @State var isEmailValid = false
+    @State var isPasswordValid = false
+    
+    @State var isEmailError = false
+    @State var isPasswordError = false
+    
     @State var hasTappedSignIn = false
+    
+    @State var currentNonce: String?
     @State var alertItem: AlertItem?
+    @State var coordinator: SignInWithAppleCoordinator?
     
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -32,55 +45,56 @@ struct SignInView: View {
                 VStack {
                 customNavigationBar
                     Spacer()
-                    SignInWithAppleButton(
-                        onRequest: { request in
-                            let nonce = randomNonceString()
-                            currentNonce = nonce
-                            
-                            request.requestedScopes = [.fullName, .email]
-                            request.nonce = sha256(nonce)
-                        },
-                        onCompletion: { result in
-                            switch result {
-                            case .success(let authResults):
-                                switch authResults.credential {
-                                case let appleIDCredential as ASAuthorizationAppleIDCredential:
-                                    
-                                    guard let nonce = currentNonce else {
-                                        fatalError("Invalid state: A login callback was received, but no login request was sent.")
-                                    }
-                                    guard let appleIDToken = appleIDCredential.identityToken else {
-                                        fatalError("Invalid state: A login callback was received, but no login request was sent.")
-                                    }
-                                    guard let idTokenString = String(data: appleIDToken, encoding: .utf8) else {
-                                        print("Unable to serialize token string from data: \(appleIDToken.debugDescription)")
-                                        return
-                                    }
-                                    
-                                    let credential = OAuthProvider.credential(withProviderID: "apple.com",idToken: idTokenString,rawNonce: nonce)
-                                    Auth.auth().signIn(with: credential) { (authResult, error) in
-                                        if (error != nil) {
-                                            // Error. If error.code == .MissingOrInvalidNonce, make sure
-                                            // you're sending the SHA256-hashed nonce as a hex string with
-                                            // your request to Apple.
-                                            print(error?.localizedDescription as Any)
-                                            return
-                                        }
-                                        print("signed in")
-            //                            self.userAuth.login()
-                                    }
-                                    
-                                    print("\(String(describing: Auth.auth().currentUser?.uid))")
-                                default:
-                                    break
-                                    
-                                }
-                            default:
-                                break
-                            }
-                        }
-                    )
-                    .frame(width: 250, height: 45, alignment: .center)
+                    appleSignInButton
+//                    SignInWithAppleButton(
+//                        onRequest: { request in
+//                            let nonce = randomNonceString()
+//                            currentNonce = nonce
+//
+//                            request.requestedScopes = [.fullName, .email]
+//                            request.nonce = sha256(nonce)
+//                        },
+//                        onCompletion: { result in
+//                            switch result {
+//                            case .success(let authResults):
+//                                switch authResults.credential {
+//                                case let appleIDCredential as ASAuthorizationAppleIDCredential:
+//
+//                                    guard let nonce = currentNonce else {
+//                                        fatalError("Invalid state: A login callback was received, but no login request was sent.")
+//                                    }
+//                                    guard let appleIDToken = appleIDCredential.identityToken else {
+//                                        fatalError("Invalid state: A login callback was received, but no login request was sent.")
+//                                    }
+//                                    guard let idTokenString = String(data: appleIDToken, encoding: .utf8) else {
+//                                        print("Unable to serialize token string from data: \(appleIDToken.debugDescription)")
+//                                        return
+//                                    }
+//
+//                                    let credential = OAuthProvider.credential(withProviderID: "apple.com",idToken: idTokenString,rawNonce: nonce)
+//                                    Auth.auth().signIn(with: credential) { (authResult, error) in
+//                                        if (error != nil) {
+//                                            // Error. If error.code == .MissingOrInvalidNonce, make sure
+//                                            // you're sending the SHA256-hashed nonce as a hex string with
+//                                            // your request to Apple.
+//                                            print(error?.localizedDescription as Any)
+//                                            return
+//                                        }
+//                                        print("signed in")
+//            //                            self.userAuth.login()
+//                                    }
+//
+//                                    print("\(String(describing: Auth.auth().currentUser?.uid))")
+//                                default:
+//                                    break
+//
+//                                }
+//                            default:
+//                                break
+//                            }
+//                        }
+//                    )
+//                    .frame(width: 250, height: 45, alignment: .center)
                     .padding(.bottom, 5)
                     googleSignInButton
                         .padding(.vertical, 5)
@@ -94,14 +108,12 @@ struct SignInView: View {
         }
         .hideNavigationBar()
         .onAppear {
-//        Analytics.logEvent(AnalyticsEventScreenView,
-//                           parameters: [AnalyticsParameterScreenName: AnalyticsScreenNames.signInView])
     }
-//    .alert(item: $alertItem) { alertItem in
-//        Alert(title: alertItem.title,
-//              message: alertItem.message,
-//              dismissButton: alertItem.dismissButton)
-//    }
+        .alert(item: $alertItem) { alertItem in
+            Alert(title: alertItem.title,
+                  message: alertItem.message,
+                  dismissButton: alertItem.dismissButton)
+        }
     }
     
 
@@ -120,6 +132,23 @@ struct SignInView: View {
         Text("FOODiii")
             .foregroundColor(Colors.green)
             .modifier(FontModifier(size: 20, weight: .extraBold))
+    }
+    
+    private var appleSignInButton: some View {
+        Button(action: {
+            signInWithApple()
+        }) {
+            RoundedRectangle(cornerRadius: 4)
+                .foregroundColor(.white)
+                .shadow(color: Color.black.opacity(0.26), radius: 12, x: 0, y: 0)
+                .frame(maxWidth: .infinity)
+                .frame(height: 44)
+                .overlay(
+                    Text("Sign in with Apple")
+                        .foregroundColor(Colors.greyDark)
+                        .modifier(FontModifier(size: 15, weight: .extraBold))
+                )
+        }
     }
     
     private var googleSignInButton: some View {
@@ -177,6 +206,13 @@ struct SignInView: View {
     private var customDivider: some View {
         RoundedRectangle(cornerRadius: 1)
             .frame(height: 2)
+    }
+    
+    private func signInWithApple() {
+        coordinator = SignInWithAppleCoordinator(session: session)
+        if let coordinator = coordinator {
+            coordinator.startSignInWithAppleFlow()
+        }
     }
     
     private var signInWithFacebook: some View {
@@ -247,6 +283,31 @@ struct SignInView: View {
                 Spacer()
             }
             titleLabel
+        }
+    }
+    
+    enum UserInfoType {
+        case email
+        case password
+        case all
+    }
+    
+    private func verifyUserInfo(for type: UserInfoType) {
+        switch type {
+        case .email:
+            isEmailValid = Validation().validateEmail(email)
+            isEmailError = !isEmailValid
+            
+        case .password:
+            isPasswordValid = Validation().validatePassword(password)
+            isPasswordError = !isPasswordValid
+            
+        case .all:
+            isEmailValid = Validation().validateEmail(email)
+            isEmailError = !isEmailValid
+
+            isPasswordValid = Validation().validatePassword(password)
+            isPasswordError = !isPasswordValid
         }
     }
     

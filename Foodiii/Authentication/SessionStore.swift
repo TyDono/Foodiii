@@ -9,6 +9,7 @@ import Combine
 import Firebase
 import SwiftUI
 import FirebaseCore
+import FirebaseAuth
 
 class SessionStore: ObservableObject {
     var didChange = PassthroughSubject<SessionStore, Never>()
@@ -18,6 +19,7 @@ class SessionStore: ObservableObject {
             self.didChange.send(self)
         }
     }
+    
     @Published var isDoneSettingUp = false
     
     @Published var resetPasswordEmail = ""
@@ -37,41 +39,25 @@ class SessionStore: ObservableObject {
             } else {
                 user = nil
             }
-            
             isDoneSettingUp = true
         }
     }
     
-    func signUp(email: String, password: String, completion: @escaping (_ error: Error?) -> Void) {
+    func signUp(email: String, password: String, completion: @escaping (AuthDataResult?,Error?) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
-            if let error = error {
-                print(error.localizedDescription)
-                completion(error)
-            } else {
-                completion(nil)
-            }
+            completion(result, error)
         }
     }
     
-    func signIn(email: String, password: String, completion: @escaping (_ error: Error?) -> Void) {
+    func signIn(email: String, password: String, completion: @escaping (AuthDataResult?,Error?) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
-            if let error = error {
-                print(error.localizedDescription)
-                completion(error)
-            } else {
-                completion(nil)
-            }
+            completion(result, error)
         }
     }
     
-    func signInWithCredential(credential: AuthCredential, completion: @escaping (_ error: Error?) -> Void) {
+    func signInWithCredential(credential: AuthCredential, completion: @escaping (AuthDataResult?,Error?) -> Void) {
         Auth.auth().signIn(with: credential) { (result, error) in
-            if let error = error {
-                print(error.localizedDescription)
-                completion(error)
-            } else {
-                completion(nil)
-            }
+            completion(result, error)
         }
     }
     
